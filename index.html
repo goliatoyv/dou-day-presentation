@@ -5,17 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>DOU Day 2026 | My Water Shop</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.css">
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
-
-    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- V2 Styles -->
-    <link rel="stylesheet" href="style_v2.css">
+    <link rel="stylesheet" href="style_v3.css">
 </head>
 <body>
     <!-- Background Animation -->
@@ -26,7 +20,6 @@
         <div class="grid-overlay"></div>
     </div>
 
-    <!-- Presentation -->
     <div class="reveal">
         <div class="slides">
 
@@ -36,7 +29,6 @@
             <section data-transition="convex" class="full-slide">
                 <div class="slide-content hero-split">
 
-                    <!-- Left col -->
                     <div class="hero-left">
                         <div class="neon-badge pulse-anim">15 — 16 травня</div>
                         <h1 class="hero-title">DOU <span class="text-gradient">Day 2026</span></h1>
@@ -44,17 +36,29 @@
                         <p class="hero-desc">Найбільша технічна конференція від спільноти DOU</p>
                     </div>
 
-                    <!-- Right col -->
                     <div class="hero-right">
                         <div class="glass-card stat-card-full">
                             <div class="stat-item">
-                                <i class="fa-solid fa-users text-primary stat-icon"></i>
+                                <div class="stat-icon-wrap stat-icon-primary">
+                                    <i class="fa-solid fa-users"></i>
+                                </div>
                                 <div class="stat-number">4 000+</div>
                                 <p class="stat-label">Учасників</p>
                             </div>
-                            <div class="stat-divider"></div>
+
+                            <!-- Wave divider -->
+                            <div class="stat-wave-divider">
+                                <svg viewBox="0 0 500 32" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0,16 C60,4 100,28 160,16 C220,4 260,28 320,16 C380,4 430,28 500,16" stroke="rgba(6,182,212,0.25)" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                    <path d="M0,16 C60,28 100,4 160,16 C220,28 260,4 320,16 C380,28 430,4 500,16" stroke="rgba(59,130,246,0.15)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                </svg>
+                                <div class="wave-dot"></div>
+                            </div>
+
                             <div class="stat-item">
-                                <i class="fa-solid fa-laptop-code text-teal stat-icon"></i>
+                                <div class="stat-icon-wrap stat-icon-teal">
+                                    <i class="fa-solid fa-laptop-code"></i>
+                                </div>
                                 <div class="stat-number">ЦА</div>
                                 <p class="stat-label">Технічні спеціалісти (розробники, DevOps, ML) та нетехнічні (аналітики, HR, менеджери)</p>
                             </div>
@@ -75,8 +79,12 @@
                     </div>
 
                     <div class="slide-body goal-body">
-                        <div class="abstract-bullseye">
-                            <i class="fa-solid fa-bullseye glow-icon"></i>
+                        <div class="bullseye-wrap">
+                            <!-- Animated rings -->
+                            <div class="ring ring-1"></div>
+                            <div class="ring ring-2"></div>
+                            <div class="ring ring-3"></div>
+                            <i class="fa-solid fa-bullseye glow-icon bullseye-icon"></i>
                         </div>
                         <div class="glass-card big-quote-card center-text">
                             <i class="fa-solid fa-quote-left quote-icon watermark"></i>
@@ -139,7 +147,7 @@
 
                     <div class="slide-body body-split">
 
-                        <!-- Left: big action card -->
+                        <!-- Left: action card with viral row -->
                         <div class="split-col">
                             <div class="glass-card action-card border-yellow" style="height:100%;">
                                 <div class="card-icon absolute-icon"><i class="fa-solid fa-palette text-yellow"></i></div>
@@ -147,19 +155,69 @@
                                 <p class="body-text">Замість звичайного брендування бутля, ми запрошуємо <strong>справжнього художника</strong>, який під час заходу розмальовує 2-3 бутлі наживо.</p>
                                 <h4 class="text-white">Чому це працює?</h4>
                                 <p class="body-text-small text-muted">Це створює рух і «натовп». Це потенційна віральність — люди будуть знімати процес та ділитись у соцмережах.</p>
+
+                                <!-- Social virality bar -->
+                                <div class="viral-row">
+                                    <span class="viral-label text-muted">Viral potential</span>
+                                    <div class="viral-icons">
+                                        <div class="viral-icon vi-instagram"><i class="fa-brands fa-instagram"></i></div>
+                                        <div class="viral-icon vi-tiktok"><i class="fa-brands fa-tiktok"></i></div>
+                                        <div class="viral-icon vi-facebook"><i class="fa-brands fa-facebook"></i></div>
+                                        <div class="viral-icon vi-twitter"><i class="fa-brands fa-x-twitter"></i></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Right: constraint card -->
+                        <!-- Right: constraint card with timeline -->
                         <div class="split-col">
-                            <div class="glass-card constraint-card" style="height:100%;">
+                            <div class="glass-card constraint-card-tall" style="height:100%;">
                                 <i class="fa-solid fa-clock card-bg-icon"></i>
-                                <h4 class="text-cyan mb-small"><i class="fa-solid fa-gear"></i> Організаційні деталі</h4>
-                                <ul class="clean-list text-left">
-                                    <li>Художник працює 2–3 години, не весь день.</li>
-                                    <li>Малює 2-3 бутлі максимум.</li>
-                                    <li>Стиль узгоджений заздалегідь (ескіз).</li>
-                                </ul>
+
+                                <div class="constraint-content">
+                                    <h4 class="text-cyan mb-small"><i class="fa-solid fa-gear"></i> Організаційні деталі</h4>
+                                    <ul class="clean-list text-left">
+                                        <li>Художник працює 2–3 години, не весь день.</li>
+                                        <li>Малює 2-3 бутлі максимум.</li>
+                                        <li>Стиль узгоджений заздалегідь (ескіз).</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Event day timeline visualization -->
+                                <div class="artist-timeline">
+                                    <div class="at-title text-muted">Графік дня</div>
+                                    <div class="at-track">
+                                        <div class="at-seg at-inactive"></div>
+                                        <div class="at-seg at-active">
+                                            <span class="at-active-label">2–3 год</span>
+                                            <i class="fa-solid fa-palette at-active-icon"></i>
+                                        </div>
+                                        <div class="at-seg at-inactive"></div>
+                                    </div>
+                                    <div class="at-axis">
+                                        <span>09:00</span>
+                                        <span>11:00</span>
+                                        <span>14:00</span>
+                                        <span>18:00</span>
+                                    </div>
+
+                                    <!-- Milestone dots -->
+                                    <div class="at-milestones">
+                                        <div class="at-milestone">
+                                            <div class="at-dot"></div>
+                                            <p class="at-m-label">Прибуття<br>& підготовка</p>
+                                        </div>
+                                        <div class="at-milestone at-milestone-active">
+                                            <div class="at-dot at-dot-active"></div>
+                                            <p class="at-m-label text-yellow">Малює<br>наживо</p>
+                                        </div>
+                                        <div class="at-milestone">
+                                            <div class="at-dot"></div>
+                                            <p class="at-m-label">Перфоманс<br>завершено</p>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 
@@ -181,22 +239,32 @@
                     <div class="slide-body body-cols-3">
 
                         <div class="glass-card activity-card">
+                            <div class="act-step-badge">01</div>
                             <div class="card-icon mini border-primary"><i class="fa-solid fa-camera"></i></div>
                             <h4 class="text-primary mb-small">Тантамареска (UGC)</h4>
                             <p class="body-text-small text-muted">Заохотити людину зробити фото, «викласти», тегнути MWS.</p>
-                            <div class="neon-badge variant-blue mt-small" style="font-size:16px; letter-spacing:1px; padding:8px 18px; margin-bottom:0;">
+                            <div class="neon-badge variant-blue mt-small act-reward-badge">
                                 Виклав фото = отримав напій/мерч + промокод
                             </div>
                         </div>
 
                         <div class="glass-card activity-card">
+                            <div class="act-step-badge act-step-teal">02</div>
                             <div class="card-icon mini border-teal"><i class="fa-solid fa-chalkboard"></i></div>
                             <h4 class="text-teal mb-small">Інтерактивна дошка</h4>
                             <p class="body-text-small text-muted">«Випив склянку — наліпи стікер/постав галочку».</p>
                             <p class="body-text-small mt-small">В кінці дня оголошуємо скільки літрів випило ком'юніті DOU!</p>
+                            <!-- Community water meter -->
+                            <div class="water-meter">
+                                <div class="wm-bar">
+                                    <div class="wm-fill"></div>
+                                </div>
+                                <span class="wm-label text-muted">Прогрес дня</span>
+                            </div>
                         </div>
 
                         <div class="glass-card activity-card">
+                            <div class="act-step-badge act-step-yellow">03</div>
                             <div class="card-icon mini border-yellow"><i class="fa-solid fa-note-sticky"></i></div>
                             <h4 class="text-yellow mb-small">Мікро-мерч</h4>
                             <p class="body-text-small text-muted">Прикольні стікери біля кулера + картки з промокодом та QR.</p>
@@ -224,30 +292,46 @@
 
                     <div class="slide-body funnel-layout">
 
-                        <!-- Funnel steps row -->
                         <div class="funnel-steps">
-                            <div class="funnel-step f-1">
-                                <div class="f-icon"><i class="fa-solid fa-qrcode"></i></div>
-                                <p>Сканує код<br>на кулері</p>
+                            <div class="funnel-step-wrap">
+                                <div class="f-step-num">01</div>
+                                <div class="funnel-step f-1">
+                                    <div class="f-icon"><i class="fa-solid fa-qrcode"></i></div>
+                                    <p>Сканує код<br>на кулері</p>
+                                </div>
                             </div>
-                            <div class="f-connector"></div>
-                            <div class="funnel-step f-2">
-                                <div class="f-icon"><i class="fa-solid fa-cart-shopping"></i></div>
-                                <p>Перше замовлення<br><strong>(DOU2026)</strong></p>
+                            <div class="f-connector">
+                                <div class="f-arrow"></div>
                             </div>
-                            <div class="f-connector"></div>
-                            <div class="funnel-step f-3">
-                                <div class="f-icon"><i class="fa-solid fa-wine-bottle"></i></div>
-                                <p>Отримує<br>гарантований напій</p>
+                            <div class="funnel-step-wrap">
+                                <div class="f-step-num">02</div>
+                                <div class="funnel-step f-2">
+                                    <div class="f-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                                    <p>Перше замовлення<br><strong>(DOU2026)</strong></p>
+                                </div>
                             </div>
-                            <div class="f-connector"></div>
-                            <div class="funnel-step f-4 pulse-glow">
-                                <div class="f-icon"><i class="fa-solid fa-drum"></i></div>
-                                <p>Барабан/Лот<br>(суперприз)</p>
+                            <div class="f-connector">
+                                <div class="f-arrow"></div>
+                            </div>
+                            <div class="funnel-step-wrap">
+                                <div class="f-step-num">03</div>
+                                <div class="funnel-step f-3">
+                                    <div class="f-icon"><i class="fa-solid fa-wine-bottle"></i></div>
+                                    <p>Отримує<br>гарантований напій</p>
+                                </div>
+                            </div>
+                            <div class="f-connector">
+                                <div class="f-arrow"></div>
+                            </div>
+                            <div class="funnel-step-wrap">
+                                <div class="f-step-num f-step-gold">04</div>
+                                <div class="funnel-step f-4 pulse-glow">
+                                    <div class="f-icon"><i class="fa-solid fa-drum"></i></div>
+                                    <p>Барабан/Лот<br>(суперприз)</p>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Key phrase pinned to bottom -->
                         <div class="glass-card key-phrase-card box-glow-primary center">
                             <p class="text-italic text-white">«Ти все одно замовиш воду пізніше. Чому не отримати за це бонус зараз?»</p>
                             <p class="text-muted text-small mt-small">Промоутер пропонує зробити фото з виграшем біля тантамарески.</p>
@@ -268,23 +352,50 @@
                         <p class="section-subtitle text-yellow">Колесо Фортуни — Гейміфікація</p>
                     </div>
 
-                    <!-- Flex row: [left card] [center: wheel + phrase] [right cards] -->
                     <div class="slide-body wheel-layout">
 
                         <!-- Left: step 1 -->
                         <div class="wheel-side-cards">
-                            <div class="glass-card w-radial-card border-yellow">
+                            <div class="glass-card w-radial-card border-yellow w-step-card">
+                                <div class="w-step-num">01</div>
                                 <i class="fa-solid fa-qrcode w-icon text-muted"></i>
                                 <p class="text-center">Сканує код<br>на кулері</p>
                             </div>
                         </div>
 
-                        <!-- Center: wheel + phrase below -->
+                        <!-- Center: CSS fortune wheel + phrase below -->
                         <div class="wheel-center-col">
-                            <div class="wheel-center glass-card hover-spin box-glow-yellow">
-                                <i class="fa-solid fa-dharmachakra huge-icon text-yellow"></i>
-                                <h3 class="w-title">Крути та вигравай!</h3>
+                            <!-- Needle -->
+                            <div class="fw-needle-indicator">
+                                <i class="fa-solid fa-caret-down"></i>
                             </div>
+
+                            <!-- Fortune wheel disk -->
+                            <div class="fw-disk-outer" id="fortuneWheel">
+                                <div class="fw-disk">
+                                    <!-- Segment text labels -->
+                                    <div class="fw-text t1"><span>Промокод<br>–15%</span></div>
+                                    <div class="fw-text t2"><span>Напій<br>MWS</span></div>
+                                    <div class="fw-text t3"><span>Стікер<br>пак</span></div>
+                                    <div class="fw-text t4"><span>Знижка<br>–20%</span></div>
+                                    <div class="fw-text t5"><span>Кружка<br>MWS</span></div>
+                                    <div class="fw-text t6"><span>+1<br>Напій</span></div>
+                                    <!-- Divider lines -->
+                                    <div class="fw-div d1"></div>
+                                    <div class="fw-div d2"></div>
+                                    <div class="fw-div d3"></div>
+                                    <div class="fw-div d4"></div>
+                                    <div class="fw-div d5"></div>
+                                    <div class="fw-div d6"></div>
+                                    <!-- Center hub -->
+                                    <div class="fw-hub">
+                                        <i class="fa-solid fa-droplet text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 class="w-title text-yellow">Крути та вигравай!</h3>
+
                             <div class="glass-card w-phrase border-yellow center full-width">
                                 <i class="fa-solid fa-key text-yellow mb-small"></i>
                                 <p class="text-white text-italic text-center">«З тебе — реєстрація, з нас — подарунок. Крути колесо та забирай свій профіт»</p>
@@ -293,11 +404,13 @@
 
                         <!-- Right: steps 2 & 3 -->
                         <div class="wheel-side-cards">
-                            <div class="glass-card w-radial-card border-yellow">
+                            <div class="glass-card w-radial-card border-yellow w-step-card">
+                                <div class="w-step-num">02</div>
                                 <i class="fa-solid fa-mobile-screen w-icon text-cyan"></i>
                                 <p class="text-center">Завантаж та<br>зареєструйся</p>
                             </div>
-                            <div class="glass-card w-radial-card border-yellow">
+                            <div class="glass-card w-radial-card border-yellow w-step-card">
+                                <div class="w-step-num">03</div>
                                 <i class="fa-solid fa-gift w-icon text-primary"></i>
                                 <p class="text-center">Зупинка сектору<br>та приз</p>
                             </div>
@@ -312,24 +425,47 @@
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
             <section data-transition="zoom" class="full-slide">
                 <div class="slide-content">
+
+                    <div class="slide-header">
+                        <h2 class="section-title"><i class="fa-solid fa-leaf text-teal"></i> Еко-ініціатива</h2>
+                        <p class="section-subtitle">Брендинг із турботою про планету</p>
+                    </div>
+
                     <div class="slide-body eco-layout">
 
-                        <!-- Globe -->
                         <div class="eco-globe-col">
                             <div class="globe-container">
                                 <div class="eco-glow"></div>
+                                <!-- Orbiting leaf -->
+                                <div class="eco-orbit">
+                                    <i class="fa-solid fa-leaf eco-leaf"></i>
+                                </div>
                                 <i class="fa-solid fa-earth-europe giant-globe"></i>
                             </div>
                         </div>
 
-                        <!-- Content card -->
                         <div class="eco-content-col">
                             <div class="glass-card eco-card border-teal box-glow-teal">
                                 <h2 class="eco-title text-gradient-green">Зелена торба</h2>
                                 <p class="eco-subtitle">Чиста планета – це точно те, чого бажають усі. <strong>Треба просто нагадати.</strong></p>
-                                <div class="box-icon-container">
-                                    <i class="fa-solid fa-box-open"></i>
+
+                                <div class="eco-visual-row">
+                                    <div class="eco-step-item">
+                                        <div class="eco-step-icon"><i class="fa-solid fa-bottle-water"></i></div>
+                                        <p class="eco-step-label">Пластикова<br>пляшка</p>
+                                    </div>
+                                    <div class="eco-step-arrow"><i class="fa-solid fa-arrow-right text-teal"></i></div>
+                                    <div class="eco-step-item">
+                                        <div class="eco-step-icon eco-si-active"><i class="fa-solid fa-box-open"></i></div>
+                                        <p class="eco-step-label text-teal">Торба-<br>коробка</p>
+                                    </div>
+                                    <div class="eco-step-arrow"><i class="fa-solid fa-arrow-right text-teal"></i></div>
+                                    <div class="eco-step-item">
+                                        <div class="eco-step-icon"><i class="fa-solid fa-recycle"></i></div>
+                                        <p class="eco-step-label">Переробка<br>& брендинг</p>
+                                    </div>
                                 </div>
+
                                 <p class="body-text text-muted text-center">Ставимо торби-коробки з брендованими наклейками для збору пластику.</p>
                             </div>
                         </div>
@@ -355,6 +491,13 @@
                             <div class="c-icon"><i class="fa-solid fa-location-dot text-cyan"></i></div>
                             <h3 class="text-center">Локації</h3>
                             <p class="text-center text-muted body-text-small">Мінімум 3 зони гідратації.<br>Кулери мають бути у нормальному стані.</p>
+                            <div class="location-dots">
+                                <span class="loc-dot active"></span>
+                                <span class="loc-dot active"></span>
+                                <span class="loc-dot active"></span>
+                                <span class="loc-dot"></span>
+                                <span class="loc-dot"></span>
+                            </div>
                         </div>
 
                         <div class="glass-card constraint-card">
@@ -367,12 +510,22 @@
                             <div class="c-icon"><i class="fa-solid fa-users-gear text-yellow"></i></div>
                             <h3 class="text-center">Організація</h3>
                             <p class="text-center text-muted body-text-small">Інтерактиви рознести у часі/по зонах (1 активна з промоутером + 2 пасивні). Врахувати операційку промоутерів.</p>
+                            <div class="org-badges">
+                                <span class="org-badge org-active">× 1 активна</span>
+                                <span class="org-badge org-passive">× 2 пасивні</span>
+                            </div>
                         </div>
 
                         <div class="glass-card constraint-card">
                             <div class="c-icon"><i class="fa-solid fa-bullhorn text-teal"></i></div>
                             <h3 class="text-center">Інтеграція</h3>
                             <p class="text-center text-muted body-text-small">Згадка зі сцени, позначення на мапі івенту («Hydration point»), згадка в Telegram, дописи в соцмережах.</p>
+                            <div class="integration-icons">
+                                <i class="fa-solid fa-microphone-lines int-icon text-teal"></i>
+                                <i class="fa-solid fa-map-location-dot int-icon text-primary"></i>
+                                <i class="fa-brands fa-telegram int-icon text-cyan"></i>
+                                <i class="fa-brands fa-instagram int-icon text-yellow"></i>
+                            </div>
                         </div>
 
                     </div>
@@ -384,11 +537,26 @@
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
             <section data-transition="fade" class="full-slide">
                 <div class="slide-content">
-                    <div class="slide-body hero-slide center">
-                        <div class="pulse-anim huge-droplet glow-icon">
-                            <i class="fa-solid fa-droplet text-primary"></i>
+                    <div class="slide-body thanks-body">
+
+                        <!-- Ripple rings -->
+                        <div class="thanks-ripple-wrap">
+                            <div class="thanks-ring tr-1"></div>
+                            <div class="thanks-ring tr-2"></div>
+                            <div class="thanks-ring tr-3"></div>
+                            <div class="thanks-ring tr-4"></div>
+                            <div class="thanks-droplet-icon pulse-anim">
+                                <i class="fa-solid fa-droplet text-primary"></i>
+                            </div>
                         </div>
-                        <h1 class="hero-title text-center text-glow">Дякуємо!</h1>
+
+                        <h1 class="hero-title text-center text-glow thanks-title">Дякуємо!</h1>
+
+                        <div class="thanks-url-badge">
+                            <i class="fa-solid fa-globe text-cyan"></i>
+                            <span>mywatershop.com.ua</span>
+                        </div>
+
                     </div>
                 </div>
             </section>
@@ -397,6 +565,6 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script_v3.js"></script>
 </body>
 </html>
