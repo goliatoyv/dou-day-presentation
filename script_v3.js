@@ -1,42 +1,84 @@
-// ─── PDF export ──────────────────────────────────────────────────────────────
-// If opened with ?print-pdf — auto-trigger browser print dialog after load
-if (window.location.search.includes('print-pdf')) {
-    window.addEventListener('load', () => {
-        setTimeout(() => window.print(), 1800);
-    });
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-    // PDF button logic
-    const pdfBtn   = document.getElementById('pdf-btn');
-    const pdfToast = document.getElementById('pdf-toast');
-    const toastClose = document.getElementById('pdf-toast-close');
-    let toastTimer = null;
+    // ─── PDF export via html2canvas + jsPDF ──────────────────────────────────
+    const pdfBtn        = document.getElementById('pdf-btn');
+    const pdfToast      = document.getElementById('pdf-toast');
+    const toastClose    = document.getElementById('pdf-toast-close');
+    const toastIcon     = document.getElementById('pdf-toast-icon');
+    const toastTitle    = document.getElementById('pdf-toast-title');
+    const toastMsg      = document.getElementById('pdf-toast-msg');
+    const slideCur      = document.getElementById('pdf-slide-cur');
+    const slideTot      = document.getElementById('pdf-slide-tot');
+    const progressFill  = document.getElementById('pdf-progress-fill');
 
-    if (pdfBtn) {
-        // Hide button when already in print-pdf mode
-        if (window.location.search.includes('print-pdf')) {
-            pdfBtn.style.display = 'none';
+    async function generatePDF() {
+        const { jsPDF } = window.jspdf;
+        const total = Reveal.getTotalSlides();
+        const saved = Reveal.getIndices();
+
+        // Show toast
+        pdfToast.classList.add('visible');
+        toastIcon.className = 'fa-solid fa-spinner fa-spin';
+        toastTitle.textContent = 'Генерую PDF…';
+        slideTot.textContent = total;
+        progressFill.style.width = '0%';
+        pdfBtn.disabled = true;
+        pdfBtn.querySelector('span').textContent = 'Генерую…';
+
+        const pdf = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4' });
+        const W = 297, H = 210;
+
+        // Hide PDF button during capture
+        pdfBtn.style.opacity = '0';
+
+        for (let i = 0; i < total; i++) {
+            Reveal.slide(i);
+            await new Promise(r => setTimeout(r, 700));
+
+            slideCur.textContent = i + 1;
+            progressFill.style.width = `${Math.round(((i + 1) / total) * 100)}%`;
+
+            const canvas = await html2canvas(document.body, {
+                scale: 1,
+                useCORS: true,
+                allowTaint: true,
+                backgroundColor: '#03070e',
+                width: window.innerWidth,
+                height: window.innerHeight,
+                windowWidth: window.innerWidth,
+                windowHeight: window.innerHeight,
+                logging: false,
+                imageTimeout: 0,
+                ignoreElements: el => el.id === 'pdf-toast'
+            });
+
+            if (i > 0) pdf.addPage();
+            pdf.addImage(canvas.toDataURL('image/jpeg', 0.93), 'JPEG', 0, 0, W, H);
         }
 
-        pdfBtn.addEventListener('click', () => {
-            const base = window.location.href.split('?')[0];
-            window.open(base + '?print-pdf', '_blank');
+        // Restore slide position
+        Reveal.slide(saved.h, saved.v);
 
-            // Show toast
-            if (pdfToast) {
-                pdfToast.classList.add('visible');
-                clearTimeout(toastTimer);
-                toastTimer = setTimeout(() => pdfToast.classList.remove('visible'), 8000);
-            }
-        });
+        // Save
+        pdf.save('DOU-Day-2026-MyWaterShop.pdf');
+
+        // Reset UI
+        pdfBtn.style.opacity = '1';
+        pdfBtn.disabled = false;
+        pdfBtn.querySelector('span').textContent = 'PDF';
+
+        toastIcon.className = 'fa-solid fa-circle-check';
+        toastTitle.textContent = 'PDF збережено!';
+        toastMsg.innerHTML = 'Файл завантажено у папку «Завантаження»';
+        progressFill.style.width = '100%';
+
+        setTimeout(() => pdfToast.classList.remove('visible'), 4000);
     }
 
+    if (pdfBtn) {
+        pdfBtn.addEventListener('click', generatePDF);
+    }
     if (toastClose) {
-        toastClose.addEventListener('click', () => {
-            pdfToast.classList.remove('visible');
-            clearTimeout(toastTimer);
-        });
+        toastClose.addEventListener('click', () => pdfToast.classList.remove('visible'));
     }
 
     Reveal.initialize({
