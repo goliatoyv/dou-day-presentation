@@ -10,6 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style_v4.css">
+    <!-- Reveal.js PDF print stylesheet (loaded only when ?print-pdf) -->
+    <script>
+        if (window.location.search.includes('print-pdf')) {
+            document.write('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/css/print/pdf.min.css">');
+        }
+    </script>
 </head>
 <body>
     <!-- Background Animation -->
@@ -554,6 +560,22 @@
             </section>
 
         </div>
+    </div>
+
+    <!-- PDF export button (hidden in print mode) -->
+    <button id="pdf-btn" title="Зберегти PDF">
+        <i class="fa-solid fa-file-arrow-down"></i>
+        <span>PDF</span>
+    </button>
+
+    <!-- PDF toast instruction -->
+    <div id="pdf-toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <div>
+            <strong>Відкрилась PDF-версія</strong>
+            <p>Натисни <kbd>Cmd+P</kbd> (Mac) або <kbd>Ctrl+P</kbd> (Win) → «Зберегти як PDF»</p>
+        </div>
+        <button id="pdf-toast-close"><i class="fa-solid fa-xmark"></i></button>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.0.4/reveal.min.js"></script>

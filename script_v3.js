@@ -1,4 +1,44 @@
+// ─── PDF export ──────────────────────────────────────────────────────────────
+// If opened with ?print-pdf — auto-trigger browser print dialog after load
+if (window.location.search.includes('print-pdf')) {
+    window.addEventListener('load', () => {
+        setTimeout(() => window.print(), 1800);
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    // PDF button logic
+    const pdfBtn   = document.getElementById('pdf-btn');
+    const pdfToast = document.getElementById('pdf-toast');
+    const toastClose = document.getElementById('pdf-toast-close');
+    let toastTimer = null;
+
+    if (pdfBtn) {
+        // Hide button when already in print-pdf mode
+        if (window.location.search.includes('print-pdf')) {
+            pdfBtn.style.display = 'none';
+        }
+
+        pdfBtn.addEventListener('click', () => {
+            const base = window.location.href.split('?')[0];
+            window.open(base + '?print-pdf', '_blank');
+
+            // Show toast
+            if (pdfToast) {
+                pdfToast.classList.add('visible');
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(() => pdfToast.classList.remove('visible'), 8000);
+            }
+        });
+    }
+
+    if (toastClose) {
+        toastClose.addEventListener('click', () => {
+            pdfToast.classList.remove('visible');
+            clearTimeout(toastTimer);
+        });
+    }
+
     Reveal.initialize({
         width: 1920,
         height: 1080,

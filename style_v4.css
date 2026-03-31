@@ -1340,3 +1340,94 @@ body {
 .full-width     { width: 100%; }
 .center-content { display: flex; align-items: center; justify-content: center; }
 .center-text    { text-align: center; }
+
+/* ═══════════════════════════════════════
+   PDF EXPORT BUTTON
+═══════════════════════════════════════ */
+#pdf-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1.5px solid rgba(59,130,246,0.35);
+    background: rgba(8,18,42,0.85);
+    backdrop-filter: blur(16px);
+    color: var(--color-primary);
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.5), 0 0 16px rgba(59,130,246,0.1);
+    transition: all 0.25s cubic-bezier(0.23,1,0.32,1);
+}
+#pdf-btn:hover {
+    background: rgba(59,130,246,0.15);
+    border-color: rgba(59,130,246,0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 24px rgba(59,130,246,0.2);
+}
+#pdf-btn i { font-size: 1rem; }
+
+/* ═══════════════════════════════════════
+   PDF TOAST NOTIFICATION
+═══════════════════════════════════════ */
+#pdf-toast {
+    position: fixed;
+    bottom: 90px;
+    right: 28px;
+    z-index: 9999;
+    display: none;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(16,185,129,0.3);
+    background: rgba(8,18,42,0.92);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.6), 0 0 20px rgba(16,185,129,0.1);
+    max-width: 360px;
+    animation: toast-in 0.35s cubic-bezier(0.23,1,0.32,1);
+}
+#pdf-toast.visible { display: flex; }
+#pdf-toast > i { font-size: 1.4rem; color: var(--color-teal); margin-top: 2px; flex-shrink: 0; }
+#pdf-toast strong { display: block; font-size: 15px; color: #fff; margin-bottom: 4px; }
+#pdf-toast p { font-size: 13px !important; color: var(--text-sub) !important; line-height: 1.5 !important; margin: 0 !important; }
+#pdf-toast kbd {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    font-size: 12px;
+    font-family: monospace;
+    color: var(--color-cyan);
+}
+#pdf-toast-close {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0;
+    margin-left: auto;
+    flex-shrink: 0;
+    line-height: 1;
+    transition: color 0.2s;
+}
+#pdf-toast-close:hover { color: #fff; }
+
+@keyframes toast-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Hide button and toast in print/PDF mode */
+@media print {
+    #pdf-btn, #pdf-toast { display: none !important; }
+}
